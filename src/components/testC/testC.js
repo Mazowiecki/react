@@ -1,15 +1,31 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from './testC.module.scss';
 
-const testC = () => (
-  <div className={styles.testC}>
-    testC Component
-  </div>
-);
+class testC extends React.Component {
 
-testC.propTypes = {};
+    constructor(props) {
+        super(props);
+        this.state = {
+            text: 1
+        }
+    }
 
-testC.defaultProps = {};
+    handleClick = () => {
+        this.setState({
+            text: this.state.text += 1,
+        })
+    };
+
+
+
+    render() {
+        return (
+            <div className={styles.testC}>
+                <h1>{this.state.text}</h1> <br/>
+                <button onClick={this.handleClick}>fdsfds</button>
+            </div>
+        )
+    }
+}
 
 export default testC;
