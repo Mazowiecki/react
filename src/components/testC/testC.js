@@ -37,13 +37,22 @@ class testC extends React.Component {
                     <h1>{this.state.text}</h1>
                 </div>
                 <div>
-                    {this.state.arr.map((value, index) => {
-                        return <p>{index} - {value}</p>
-                    })}
+                    <ul>
+                        <ItemList items={this.state.arr}/>
+                    </ul>
                 </div>
             </>
         )
     }
 }
+
+
+const ItemList = props => {
+    const list = [];
+    for(let i = 0; i < props.items.length; i++) {
+        list.push(<li>{props.items[i]}</li>);
+        }
+    return list;
+};
 
 export default testC;
