@@ -48,10 +48,12 @@ class testC extends React.Component {
 
 
 const ItemList = props => {
-    const list = [];
-    for(let i = 0; i < props.items.length; i++) {
-        list.push(<li>{props.items[i]}</li>);
-        }
+    const list = props.items.map((item, index) =>
+        <li key={index}>
+            {item}
+        </li>
+    );
+
     return list;
 };
 
